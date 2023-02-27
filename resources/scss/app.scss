@@ -78,6 +78,23 @@ footer {
     }
 }
 
+form .card {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border-radius: 30px 30px;
+    background: linear-gradient(111.5deg, rgb(4, 78, 116) 11.1%,rgb(187, 232, 255) 107.5%);
+    border: none;
+    font-family: 'Urbanist', sans-serif;
+
+        label {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        a,
+        button {
+            box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+        }
+}
 .line{
     border-bottom: 1px solid grey;
     padding: 1rem 0;
