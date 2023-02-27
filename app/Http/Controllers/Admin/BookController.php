@@ -16,21 +16,22 @@ class BookController extends Controller
      */
     protected $rules = 
     [
-        'ISBN' => ['required'],
-        'title' => ['required'],
-        'description' => ['required'],
-        'author' => ['required'], 
-        'publication_year' => ['required'], 
+        'ISBN' => ['required', 'string' , 'min:13' , 'max:13'],
+        'title' => ['required', 'string' , 'min:4' , 'max:50'],
+        'description' => ['required', 'string', 'min:5' , 'max:80'],
+        'author' => ['required', 'string', 'min:5' , 'max:80'], 
+        'publication_year' => ['required', 'date'], 
         'cover_image' => ['required'], 
-        'genre' => ['required'], 
-        'genre' => ['publishing_house'], 
-        'genre' => ['language']
+        'genre' => ['required', 'string'], 
+        'publishing_house' => ['publishing_house', 'string', 'min:10' , 'max:100'], 
+        'language' => ['language', 'min:2' , 'max:3']
     ];
 
     protected $messages = 
     [
         //ISBN rules Messages
         'ISBN.required' => 'E\' necessario inserire un ISBN',
+
 
         //title rules Messages
         'title.required' => 'E\' necessario inserire un titolo',
