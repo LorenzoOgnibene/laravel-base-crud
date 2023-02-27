@@ -29,7 +29,7 @@
                             <td>
                                 <a class="btn btn-primary" href="{{ route('admin.books.show', $book->id) }}">show</a>
                                 <a class="btn btn-warning" href="{{ route('admin.books.edit', $book->id) }}">edit</a>
-                                <form action="{{ route('admin.books.destroy', $book->id) }}" method="POST" class="d-inline-block element-deleter">
+                                <form action="{{ route('admin.books.destroy', $book->id) }}" method="POST" class="d-inline-block">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">delete</button>
@@ -41,6 +41,7 @@
                         @endforelse
                     </tbody>
                 </table>
+                {{ $books->links() }}
             </div>
         </div>
     </div>
