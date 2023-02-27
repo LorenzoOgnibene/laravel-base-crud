@@ -25,7 +25,37 @@ class BookController extends Controller
         'genre' => ['required'], 
         'genre' => ['publishing_house'], 
         'genre' => ['language']
-     ];
+    ];
+
+    protected $messages = 
+    [
+        //ISBN rules Messages
+        'ISBN.required' => 'E\' necessario inserire un ISBN',
+
+        //title rules Messages
+        'title.required' => 'E\' necessario inserire un titolo',
+
+        //description rules Messages
+        'description.required' => 'E\' necessario inserire una descrizione',
+
+        //author rules Messages
+        'author.required' => 'E\' necessario inserire l\'autore',
+
+        //publication_year rules Messages
+        'author.required' => 'E\' necessario inserire l\'anno di pubblicazione',
+
+        //cover_image rules Messages
+        'cover_image.required' => 'E\' necessario inserire l\'immagine del libro',
+
+        //cover_image rules Messages
+        'genre.required' => 'E\' necessario inserire il genere del libro',
+
+        //publishing_house rules Messages
+        'publishing_house.required' => 'E\' necessario inserire la casa editrice',
+
+        //language rules Messages
+        'language.required' => 'E\' necessario inserire la lingua del libro',
+    ];
 
 
     /**
