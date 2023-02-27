@@ -123,7 +123,10 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
+        $dataValidate = $request->validate($this->rules, $this->messages);
+        $book->update($dataValidate);
         
+        return redirect()->route('admin.books.show', $book->id);
     }
 
     /**
