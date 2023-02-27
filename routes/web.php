@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // FRONT PAGE
-Route::get('/index', [GuestBookController::class, 'index']);
+Route::get('/index', [GuestBookController::class, 'index'])->name('guest.index');
 
 
 Route::get('/', function () {

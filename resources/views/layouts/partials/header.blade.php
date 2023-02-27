@@ -13,7 +13,11 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 @guest
-
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold {{ str_starts_with(Route::currentRouteName(), 'guest') ? 'active' : '' }}" href="{{route('guest.index')}}">{{ __('Books') }}</a>
+                    </li>
+                </ul>
                 @else
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
@@ -22,15 +26,15 @@
                 </ul>
                 @endguest
                 <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ms-auto fw-bold">
+                <ul class="navbar-nav ms-auto">
                     <!-- Authentication Links -->
                     @guest
                     <li class="nav-item">
-                        <a class="nav-link btn btn-danger" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link btn btn-danger text-white me-2 fw-bold" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
                     @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link btn btn-outline-danger" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class="nav-link btn btn-outline-danger text-black fw-bold" href="{{ route('register') }}">{{ __('Register') }}</a>
                     </li>
                     @endif
                     @else
