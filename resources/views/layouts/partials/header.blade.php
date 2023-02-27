@@ -17,7 +17,7 @@
                 @else
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link fw-bold {{ str_starts_with(Route::currentRouteName(), 'admin.books') ? 'active' : '' }}" href="{{route('admin.projects.index')}}">{{ __('Books') }}</a>
+                        <a class="nav-link fw-bold {{ str_starts_with(Route::currentRouteName(), 'admin.books') ? 'active' : '' }}" href="{{route('admin.books.index')}}">{{ __('Books') }}</a>
                     </li>
                 </ul>
                 @endguest
