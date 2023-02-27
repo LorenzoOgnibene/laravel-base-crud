@@ -5,6 +5,13 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                @if (session('message'))
+                    <div id="popup_message" class="d-none"></div>
+                @endif
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -13,7 +20,14 @@
                             <th scope="col">author</th>
                             <th scope="col">publication year</th>
                             <th scope="col">genre</th>
-                            <th scope="col"><a class="btn btn-success" href="{{ route('admin.restore-all-books') }}">Restore all books</a></th>
+                            <th scope="col">
+                                <form method="POST" action="{{ route('admin.restore-all-books') }}">
+                                    @csrf
+                                    <button type="submit" class="btn btn-success">
+                                        Restore all books
+                                    </button>
+                                </form>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,7 +41,7 @@
                             <td>
                                 <a class="btn btn-primary" href="{{ route('admin.books.show', $book->id) }}">show</a>
                                 <a class="btn btn-warning" href="{{ route('admin.books.edit', $book->id) }}">edit</a>
-                                <form action="{{ route('admin.books.destroy', $book->id) }}" method="POST" class="d-inline-block element-deleter">
+                                <form action="{{ route('admin.force-delete-book', $book->id) }}" method="POST" class="d-inline-block element-deleter">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">delete</button>
