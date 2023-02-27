@@ -163,7 +163,7 @@ class BookController extends Controller
     {
         $book->forceDelete();
 
-        return redirect()->route('admin.books.index')->with('message', "Il libro '$book->title' è stato eliminato definitivamente dall'archivio");
+        return redirect()->route('admin.trashed-books')->with('message', "Il libro '$book->title' è stato eliminato definitivamente dall'archivio");
     }
 
     /**
