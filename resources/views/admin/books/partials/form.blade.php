@@ -1,12 +1,12 @@
 {{--Creo un unico form per edit e create || 
     creo una variabile per la rotta--}}
 
-    <form action="{{ route($routeName, $book) }}" method="POST" enctype="multipart/form-data" class="py-5">
+    <form action="{{ route($routeName, $book) }}" method="POST" enctype="multipart/form-data" class="py-3">
         @csrf
         {{--Inserisco il metodo PUT per la rotta update // vedere rotte con route:list--}}
         @method($method)
     
-        <div class="card px-5 py-5">
+        <div class="card px-5 py-3 mb-3">
     
             <div class="form-outline w-25 mb-3">
                 <label for="ISBN" class="form-label @error('ISBN') is-invalid @enderror">ISBN</label>
@@ -103,7 +103,7 @@
     
         <div class="card-footer text-end py-4 d-flex justify-content-between">
             <a href="{{ route('admin.books.index')}}" class="btn btn-dark rounded-circle"><i class="fa-solid fa-angles-left"></i></a>
-            <button type="submit" class="btn btn-success rounded-circle"><i class="fa-solid fa-plus"></i></i></button>
+            <button type="submit" class="btn btn-success rounded-circle"><i class="fa-solid fa-book"></i></button>
         </div>
     
     </form>
