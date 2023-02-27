@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -40,13 +41,14 @@ class BookController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param  int  $id
+     * Mostra una risorsa (Book) specifica
+     * 
+     * @param  Book $book
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Book $book)
     {
-        //
+        return view('admin.books.show', compact('book'));
     }
 
     /**
