@@ -168,12 +168,12 @@ class BookController extends Controller
 
     /**
      * trashed method for records deleted but not permanently
-     * metodo trashed per record eliminati ma non definitivamente
+     * metodo trashed per recrd eliminati ma non definitivamente
      */
     public function trashed()
     {
-        $bookTrashed = Book::onlyTrashed()->get();
-        return view('admin.books.trashed', compact('bookTrashed'));
+        $booksTrashed = Book::onlyTrashed()->get();
+        return view('admin.books.trashed', compact('booksTrashed'));
     }
 
     /**
