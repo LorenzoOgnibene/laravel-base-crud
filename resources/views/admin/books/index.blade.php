@@ -12,7 +12,10 @@
                             <th scope="col">author</th>
                             <th scope="col">publication year</th>
                             <th scope="col">genre</th>
-                            <th scope="col"><a class="btn btn-success" href="{{ route('admin.books.create') }}">add new book</a></th>
+                            <th scope="col" class="d-flex justify-content-between">
+                                <a class="btn btn-success" href="{{ route('admin.books.create') }}">add new book</a>
+                                <a class="btn btn-warning" href="{{ route('admin.trashed-books') }}"><i class="fa-solid fa-trash-can"></i></a>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
