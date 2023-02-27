@@ -94,7 +94,7 @@ class BookController extends Controller
     {
         // $data = $request->all();
 
-        $data = $request->validate($this->rules, $this->messages);                          
+        $data = $request->validate($this->rules, $this->messages);
         $newBook = new Book();
         $newBook->fill($data);
         $newBook->save();
@@ -137,7 +137,7 @@ class BookController extends Controller
     {
         $dataValidate = $request->validate($this->rules, $this->messages);
         $book->update($dataValidate);
-        
+
         return redirect()->route('admin.books.show', $book->id);
     }
 
@@ -153,5 +153,46 @@ class BookController extends Controller
         $book->delete();
 
         return redirect()->route('admin.books.index');
+    }
+
+    /**
+     * forceDelete method for delete record permanenttly
+     * Metodo forceDelete per eliminare definitivamente un record   
+     */
+    public function forceDelete(Book $book)
+    {
+        $book->forceDelete();
+
+        return redirect()->route('admin.books.index')->with('message', "Il libro '$book->title' è stato eliminato definitivamente dall'archivio");
+    }
+
+    /**
+     * trashed method for records deleted but not permanently
+     * metodo trashed per record eliminati ma non definitivamente
+     */
+    public function trashed()
+    {
+        $bookTrashed = Book::onlyTrashed()->get();
+        return view('admin.books.trashed', compact('bookTrashed'));
+    }
+
+    /**
+     * restore method to recover trashed records
+     * Metodo restore per recuperare record trashed
+     */
+    public function restore(Book $book)
+    {
+        $book->restore();
+        return redirect()->route('admin.books.index')->with('message', "il progetto '$book->title' è stato ripristinato con successo");
+    }
+
+    /**
+     * restoreAll method to recover all trashed records
+     * Metodo restoreAll per recuperare Tutti i record trashed
+     */
+    public function restoreAll()
+    {
+        Book::withTrashed()->restore();
+        return redirect()->route('admin.books.index')->with('message', 'Tutti i progetti sono stati ripristinati dal cestino');
     }
 }
