@@ -14,20 +14,20 @@ class BookController extends Controller
      * Regole di validazione
      * 
      */
-    protected $rules = 
+    protected $rules =
     [
-        'ISBN' => ['required', 'string' , 'min:13' , 'max:13'],
-        'title' => ['required', 'string' , 'min:4' , 'max:50'],
-        'description' => ['required', 'string', 'min:5' , 'max:80'],
-        'author' => ['required', 'string', 'min:5' , 'max:80'], 
-        'publication_year' => ['required'], 
-        'cover_image' => ['required'], 
-        'genre' => ['required'], 
-        'genre' => ['publishing_house'], 
-        'genre' => ['language']
+        'ISBN' => ['required', 'string', 'min:13', 'max:13'],
+        'title' => ['required', 'string', 'min:4', 'max:50'],
+        'description' => ['required', 'string', 'min:5', 'max:80'],
+        'author' => ['required', 'string', 'min:5', 'max:80'],
+        'publication_year' => ['required'],
+        'cover_image' => ['required'],
+        'genre' => ['required', 'string'],
+        'publishing_house' => ['required', 'string', 'min:10', 'max:100'],
+        'language' => ['required', 'min:2', 'max:3']
     ];
 
-    protected $messages = 
+    protected $messages =
     [
         //ISBN rules Messages
         'ISBN.required' => 'E\' necessario inserire un ISBN',
@@ -61,7 +61,6 @@ class BookController extends Controller
         //language rules Messages
         'language.required' => 'E\' necessario inserire la lingua del libro',
     ];
-
 
     /**
      * Display a listing of the resource.
