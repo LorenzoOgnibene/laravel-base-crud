@@ -18,9 +18,9 @@ class BookController extends Controller
     [
         'ISBN' => ['required', 'string', 'min:13', 'max:13'],
         'title' => ['required', 'string', 'min:4', 'max:50'],
-        'description' => ['required', 'string', 'min:5', 'max:80'],
+        'description' => ['required', 'string', 'min:5'],
         'author' => ['required', 'string', 'min:5', 'max:80'],
-        'publication_year' => ['required'],
+        'publication_year' => ['required', 'numeric','between:1540, 2023'],
         'cover_image' => ['required'],
         'genre' => ['required', 'string'],
         'publishing_house' => ['required', 'string', 'min:10', 'max:100'],

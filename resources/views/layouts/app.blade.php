@@ -23,7 +23,7 @@
     <body class="bg-light">
         <div id="app">
             @include('layouts.partials.header')
-            <main class="my-4">
+            <main class="">
                 @yield('content')
             </main>
             @include('layouts.partials.footer')

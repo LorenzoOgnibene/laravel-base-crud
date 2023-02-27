@@ -10,7 +10,7 @@
     
             <div class="form-outline w-25 mb-3">
                 <label for="ISBN" class="form-label @error('ISBN') is-invalid @enderror">ISBN</label>
-                <input type="text" class="form-control" id="ISBN" placeholder="Insert ISBN" name="ISBN" value="{{old('ISBN', $book->ISBN)}}">
+                <input type="text" class="form-control" id="ISBN" placeholder="Insert ISBN" maxlength="13" name="ISBN" value="{{old('ISBN', $book->ISBN)}}">
                 {{--inserisco l'errore sotto al singolo input--}}  
                 @error('ISBN')
                     <div class="invalid-feedback px-2">

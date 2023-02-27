@@ -100,3 +100,8 @@ form .card {
     padding: 1rem 0;
     margin-bottom: 2rem;
 }
+
+main{
+    height: calc(100vh - 126px);
+    overflow: scroll;
+}
