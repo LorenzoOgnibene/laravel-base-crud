@@ -31,10 +31,14 @@ class BookController extends Controller
     [
         //ISBN rules Messages
         'ISBN.required' => 'E\' necessario inserire un ISBN',
+        'ISBN.min' => 'E\' necessario che l\'ISBN abbia 13 caratteri',
+        'ISBN.max' => 'E\' necessario che l\'ISBN abbia 13 caratteri',
 
 
         //title rules Messages
         'title.required' => 'E\' necessario inserire un titolo',
+        'title.min' => 'E\' necessario che il titolo abbia almeno 4 caratteri',
+        'title.max' => 'E\' necessario che il titolo  abbia al massimo 50 caratteri',
 
         //description rules Messages
         'description.required' => 'E\' necessario inserire una descrizione',
