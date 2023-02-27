@@ -9,7 +9,7 @@
         </h1>
 
         <p class="col-md-8 fs-4 focus-in-contract">Log in to access the editing and creation of books within the program, otherwise click on the button below to have a general view of the books that are in our library</p>
-        <a href="{{route('guest.index')}}" class="btn btn-dark">Go to Books</a>
+        <a href="{{route('books.index')}}" class="btn btn-dark">Go to Books</a>
         @else
         <h1 class="display-5 fw-bold">
             Admin Library

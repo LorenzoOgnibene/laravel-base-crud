@@ -15,7 +15,7 @@
                 @guest
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link fw-bold {{ str_starts_with(Route::currentRouteName(), 'guest') ? 'active' : '' }}" href="{{route('guest.index')}}">{{ __('Books') }}</a>
+                        <a class="nav-link fw-bold {{ str_starts_with(Route::currentRouteName(), '/book') ? 'active' : '' }}" href="{{route('books.index')}}">{{ __('Books') }}</a>
                     </li>
                 </ul>
                 @else
