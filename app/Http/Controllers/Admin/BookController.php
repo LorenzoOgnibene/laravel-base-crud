@@ -8,6 +8,26 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
+
+    /**
+     * Validation Rules
+     * Regole di validazione
+     * 
+     */
+    protected $rules = 
+    [
+        'ISBN' => ['required'],
+        'title' => ['required'],
+        'description' => ['required'],
+        'author' => ['required'], 
+        'publication_year' => ['required'], 
+        'cover_image' => ['required'], 
+        'genre' => ['required'], 
+        'genre' => ['publishing_house'], 
+        'genre' => ['language']
+     ];
+
+
     /**
      * Display a listing of the resource.
      *
@@ -56,7 +76,7 @@ class BookController extends Controller
      * Mostra il form per modificare una specifica risorsa, passata tramite dependency Injection
      * 
      * @param  Book $book
-     * @return @return view('admin.books.edit')
+     * @return view('admin.books.edit')
      */
     public function edit(Book $book)
     {
@@ -65,14 +85,15 @@ class BookController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
+     * Aggiorna i dati in una specifica risorsa, già inserita nel DB
+     * 
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  Book $book
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Book $book)
     {
-        //
+        
     }
 
     /**
