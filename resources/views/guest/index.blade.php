@@ -11,7 +11,7 @@
                   <h3 class="card-title">{{$book->title}}</h3>
                   <h6 class="card-subtitle mb-2 text-muted">{{$book->language}}</h6>
                   <h5 class="card-title">{{$book->author}}</h5>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <a href="{{route('books.show', $book->id)}}" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         </div>

@@ -65,3 +65,21 @@ footer {
         }
     }
 }
+
+.navs{
+    border-bottom: 1px solid grey;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    a{
+        text-decoration: none;
+        color: gray;
+        font-weight: bold;
+        margin-right: 1rem;
+    }
+}
+
+.line{
+    border-bottom: 1px solid grey;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
