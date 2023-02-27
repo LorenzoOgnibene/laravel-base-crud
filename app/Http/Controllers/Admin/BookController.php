@@ -65,7 +65,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        $books = Book::all();
+        //dd($books);
+        return view('admin.books.index', compact('books'));
     }
 
     /**
@@ -75,7 +77,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.books.create');
     }
 
     /**
@@ -86,7 +88,25 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $request->validate(
+            [
+                'ISBN' => 'required|string|min:13|max:13',
+                'title' => 'required|string|min:5|max:50',
+                'description' => 'required|string',
+                'author' => 'required|string|min:5|max:80',
+                'publication_year' => 'required|date',
+                'cover_image' => 'required|url',
+                'genre' => 'required|string',
+                'publishing_house' => 'required|string|min:10|max:100',
+                'language' => 'required|min:2|max:3',
+            ]
+        );
+
+        $newBook = new Book();
+        $newBook->fill($data);
+        $newBook->save();
     }
 
     /**
