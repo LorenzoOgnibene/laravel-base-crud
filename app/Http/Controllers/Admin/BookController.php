@@ -22,9 +22,9 @@ class BookController extends Controller
         'author' => ['required', 'string', 'min:5' , 'max:80'], 
         'publication_year' => ['required'], 
         'cover_image' => ['required'], 
-        'genre' => ['required', 'string'], 
-        'publishing_house' => ['required', 'string', 'min:10' , 'max:100'], 
-        'language' => ['required', 'min:2' , 'max:3']
+        'genre' => ['required'], 
+        'genre' => ['publishing_house'], 
+        'genre' => ['language']
     ];
 
     protected $messages = 
