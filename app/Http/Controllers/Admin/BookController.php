@@ -41,10 +41,10 @@ class BookController extends Controller
 
     /**
      * Display the specified resource.
-     * Mostra una risorsa (Book) specifica
+     * Mostra una risorsa (Book) specifica, passata tramite dependency Injection
      * 
      * @param  Book $book
-     * @return \Illuminate\Http\Response
+     * @return view('admin.books.show')
      */
     public function show(Book $book)
     {
@@ -53,13 +53,14 @@ class BookController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * Mostra il form per modificare una specifica risorsa, passata tramite dependency Injection
+     * 
+     * @param  Book $book
+     * @return @return view('admin.books.edit')
      */
-    public function edit($id)
+    public function edit(Book $book)
     {
-        //
+        return view('admin.books.edit', compact('book'));
     }
 
     /**
