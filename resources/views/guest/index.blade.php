@@ -20,15 +20,3 @@
     {{ $books->links() }}
 </div>
 @endsection
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3.6.12/dist/js/splide.min.js"></script>
-<script>
-    var splide = new Splide('.splide', {
-        type: 'loop',
-        perPage: 3,
-        rewind: true,
-    });
-
-    splide.mount();
-</script>

@@ -16,24 +16,29 @@ class BookController extends Controller
      */
     protected $rules = 
     [
-        'ISBN' => ['required'],
-        'title' => ['required'],
-        'description' => ['required'],
-        'author' => ['required'], 
+        'ISBN' => ['required', 'string' , 'min:13' , 'max:13'],
+        'title' => ['required', 'string' , 'min:4' , 'max:50'],
+        'description' => ['required', 'string', 'min:5' , 'max:80'],
+        'author' => ['required', 'string', 'min:5' , 'max:80'], 
         'publication_year' => ['required'], 
         'cover_image' => ['required'], 
-        'genre' => ['required'], 
-        'genre' => ['publishing_house'], 
-        'genre' => ['language']
+        'genre' => ['required', 'string'], 
+        'publishing_house' => ['required', 'string', 'min:10' , 'max:100'], 
+        'language' => ['required', 'min:2' , 'max:3']
     ];
 
     protected $messages = 
     [
         //ISBN rules Messages
         'ISBN.required' => 'E\' necessario inserire un ISBN',
+        'ISBN.min' => 'E\' necessario che l\'ISBN abbia 13 caratteri',
+        'ISBN.max' => 'E\' necessario che l\'ISBN abbia 13 caratteri',
+
 
         //title rules Messages
         'title.required' => 'E\' necessario inserire un titolo',
+        'title.min' => 'E\' necessario che il titolo abbia almeno 4 caratteri',
+        'title.max' => 'E\' necessario che il titolo  abbia al massimo 50 caratteri',
 
         //description rules Messages
         'description.required' => 'E\' necessario inserire una descrizione',
@@ -75,9 +80,9 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Book $book)
     {
-        return view('admin.books.create');
+        return view('admin.books.create', compact('book'));
     }
 
     /**
@@ -88,25 +93,13 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        // $data = $request->all();
 
-        $request->validate(
-            [
-                'ISBN' => 'required|string|min:13|max:13',
-                'title' => 'required|string|min:5|max:50',
-                'description' => 'required|string',
-                'author' => 'required|string|min:5|max:80',
-                'publication_year' => 'required|date',
-                'cover_image' => 'required|url',
-                'genre' => 'required|string',
-                'publishing_house' => 'required|string|min:10|max:100',
-                'language' => 'required|min:2|max:3',
-            ]
-        );
-
+        $data = $request->validate($this->rules, $this->messages);                          
         $newBook = new Book();
         $newBook->fill($data);
         $newBook->save();
+        return redirect()->route('admin.books.index')->with('message');
     }
 
     /**

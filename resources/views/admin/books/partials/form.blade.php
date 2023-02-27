@@ -1,6 +1,17 @@
 {{--Creo un unico form per edit e create || 
     creo una variabile per la rotta--}}
 
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
+
     <form action="{{ route($routeName, $book) }}" method="POST" enctype="multipart/form-data" class="py-5">
         @csrf
         {{--Inserisco il metodo PUT per la rotta update // vedere rotte con route:list--}}
@@ -35,7 +46,7 @@
             </div>
     
             <div class="form-outline w-25 mb-3">
-                <label for="publication_year" class="form-label>Publication Year</label>
+                <label for="publication_year" class="form-label">Publication Year</label>
                 <input type="text" class="form-control" id="publication_year" placeholder="Insert publication year" name="publication_year" value="{{old('publication_year', $book->publication_year)}}">
             </div>
     
@@ -62,10 +73,10 @@
         </div>
     
         <div class="card-footer text-end py-4 d-flex justify-content-between">
-            <a href="" class="btn btn-dark rounded-circle"><i class="fa-solid fa-angles-left"></i></a>
+            <a href="{{ route('admin.books.index')}}" class="btn btn-dark rounded-circle"><i class="fa-solid fa-angles-left"></i></a>
             <button type="submit" class="btn btn-success rounded-circle"><i class="fa-solid fa-plus"></i></i></button>
         </div>
     
     </form>
 
-    {{--rotta per tornare all'index: {{ route('admin.books.index')}} --}}
+    
