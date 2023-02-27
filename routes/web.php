@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Admin\BookController;
+use App\Http\Controllers\Admin\BookController as AdminBookController;
+use App\Http\Controllers\Guest\GuestBookController as GuestBookController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// FRONT PAGE
+Route::get('/index', [GuestBookController::class, 'index']);
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -25,7 +30,7 @@ Route::get('/dashboard', function () {
 
 
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function (){
-    Route::resource('/books', BookController::class);
+    Route::resource('/books', AdminBookController::class);
 });
 
 
