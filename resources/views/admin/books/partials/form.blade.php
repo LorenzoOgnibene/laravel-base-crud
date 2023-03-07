@@ -40,7 +40,7 @@
             </div>
 
             <div class="form-outline w-100 mb-3">
-                <label for="author<" class="form-label @error('author') is-invalid @enderror">Author</label>
+                <label for="author" class="form-label @error('author') is-invalid @enderror">Author</label>
                 <input type="text" class="form-control" id="author" placeholder="Insert author" name="author" value="{{old('author', $book->author)}}">               
                 @error('author')
                     <div class="invalid-feedback px-2">
