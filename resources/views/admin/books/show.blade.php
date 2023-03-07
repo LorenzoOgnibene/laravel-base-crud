@@ -21,7 +21,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <img src="{{ $book->cover_image }}" class="img-fluid rounded-start" alt="{{ $book->title }} cover">
+                            <img src="{{asset('storage/' . $book->cover_image)}}" class="img-fluid rounded-start" alt="{{ $book->title }} cover">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
