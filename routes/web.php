@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // FRONT PAGE
-Route::get('/index', [GuestBookController::class, 'index']);
+Route::resource('/books', GuestBookController::class);
 
 
 Route::get('/', function () {
@@ -27,6 +27,12 @@ Route::get('/', function () {
 
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('/books/trashed', [AdminBookController::class, 'trashed'])->name('trashed-books');
+    Route::post('/books/{book}/restore', [AdminBookController::class, 'restore'])->name('restore-book')->withTrashed();
+    Route::post('/restore-all', [AdminBookController::class, 'restoreAll'])->name('restore-all-books');
+    Route::delete('/books/{book}/force-delete', [AdminBookController::class, 'forceDelete'])->name('force-delete-book')->withTrashed();
+
     Route::resource('/books', AdminBookController::class);
 });
 

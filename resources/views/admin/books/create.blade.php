@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1 class="mb-3 pt-5 text-center">
+        <h1 class="py-3 slide-right-title">
             Create new Book:
         </h1>
 

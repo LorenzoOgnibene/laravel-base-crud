@@ -9,6 +9,10 @@
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        <!-- Form Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
         @yield('alert')
         <!-- Usando Vite -->
         @vite(['resources/js/app.js'])  
@@ -19,9 +23,10 @@
     <body class="bg-light">
         <div id="app">
             @include('layouts.partials.header')
-            <main class="my-4">
+            <main class="">
                 @yield('content')
             </main>
+            @include('layouts.partials.footer')
         </div>
         @yield('scripts')
         

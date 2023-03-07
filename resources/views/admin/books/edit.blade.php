@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container py-5">
+    <div class="container">
 
-        <h1 class="text-center py-2 mb-2">Edit Book: "{{$book->title}}"</h1>
+        <h1 class="py-3 slide-right-title">Edit Book: "{{$book->title}}"</h1>
 
         @include('admin.books.partials.form', ['method' => 'PUT', 'routeName' => 'admin.books.update'])
 
