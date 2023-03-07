@@ -17,6 +17,7 @@ class BookController extends Controller
     }
 
     public function show(Book $book) {
+        $book = Book::findOrFail($book->id);
         return response()->json([
             'success' => true,
             'results' => $book

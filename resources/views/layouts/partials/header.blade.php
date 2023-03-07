@@ -23,6 +23,10 @@
                     <li class="nav-item">
                         <a class="nav-link fw-bold {{ str_starts_with(Route::currentRouteName(), 'admin.books') ? 'active' : '' }}" href="{{route('admin.books.index')}}">{{ __('Books') }}</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="{{route('api.books')}}">{{ __('Api Books') }}</a>
+                    </li>
                 </ul>
                 @endguest
                 <!-- Right Side Of Navbar -->
