@@ -61,7 +61,7 @@
     
             <div class="form-outline w-25 mb-3">
                 <label for="cover_image" class="form-label @error('cover_image') is-invalid @enderror">Cover Image</label>
-                <input type="text" class="form-control" id="cover_image" placeholder="Insert cover image" name="cover_image" value="{{old('cover_image', $book->cover_image)}}">
+                <input type="file" class="form-control" id="cover_image" placeholder="Insert cover image" name="cover_image" value="{{old('cover_image', $book->cover_image)}}">
                 @error('cover_image')
                     <div class="invalid-feedback px-2">
                         <i class="fa-solid fa-circle-exclamation pe-1"></i>{{ $message }}

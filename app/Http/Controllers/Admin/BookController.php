@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Book;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 class BookController extends Controller
 {
 
@@ -90,15 +90,16 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Book $book)
     {
         // $data = $request->all();
 
         $data = $request->validate($this->rules, $this->messages);
         $newBook = new Book();
         $newBook->fill($data);
+        $newBook->cover_image = Storage::put('/imgs', $data['cover_image']);
         $newBook->save();
-        return redirect()->route('admin.books.index')->with('message');
+        return redirect()->route('admin.books.show', $newBook->id)->with('message');
     }
 
     /**
@@ -136,6 +137,14 @@ class BookController extends Controller
     public function update(Request $request, Book $book)
     {
         $dataValidate = $request->validate($this->rules, $this->messages);
+        if ($request->hasFile('cover_image')){
+
+            if (!$book->isImageAUrl()){
+                Storage::delete($book->cover_image);
+            }
+
+            $dataValidate['cover_image'] =  Storage::put('/imgs', $dataValidate['cover_image']);
+        }
         $book->update($dataValidate);
 
         return redirect()->route('admin.books.show', $book->id);
