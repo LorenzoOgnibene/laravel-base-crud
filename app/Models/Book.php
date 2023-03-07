@@ -10,10 +10,16 @@ class Book extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    
-    protected $fillable=['ISBN', 'title', 'description', 'author', 'publication_year', 'cover_image', 'genre', 'publishing_house', 'language'];
 
-    public function resellers(){
+    protected $fillable = ['ISBN', 'title', 'description', 'author', 'publication_year', 'cover_image', 'genre', 'publishing_house', 'language'];
+
+    public function resellers()
+    {
         return $this->belongsToMany(Reseller::class);
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class);
     }
 }

@@ -8,6 +8,9 @@
                     <div class="row g-0">
                         <div class="card-header d-flex justify-content-between">
                             <a class="btn btn-outline-secondary" href="{{ route('admin.books.index') }}">back to book's list</a>
+                            <p>
+                                {{$book->type->name}}
+                            </p>
                             <div class="modify-element-btns">
                                 <a class="btn btn-warning me-2" href="{{ route('admin.books.edit', $book->id) }}">edit</a>
                                 <form action="{{ route('admin.books.destroy', $book->id) }}" method="POST" class="d-inline-block">
