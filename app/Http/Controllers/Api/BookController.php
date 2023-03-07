@@ -15,4 +15,11 @@ class BookController extends Controller
             'results' => $books
         ]);
     }
+
+    public function show(Book $book) {
+        return response()->json([
+            'success' => true,
+            'results' => $book
+        ]);
+    }
 }
