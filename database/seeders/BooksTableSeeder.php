@@ -3,9 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\Book;
+use App\Models\Type;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
+
 class BooksTableSeeder extends Seeder
 {
     /**
@@ -15,9 +17,10 @@ class BooksTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 20; $i++) { 
+        for ($i = 0; $i < 20; $i++) {
             $newBook = new Book();
             $newBook->ISBN = $faker->unique()->isbn13();
+            $newBook->type_id = Type::inRandomOrder()->first()->id;
             $newBook->title = $faker->realTextBetween(10, 30);
             $newBook->description = $faker->realTextBetween(600, 1200);
             $newBook->author = $faker->name();
