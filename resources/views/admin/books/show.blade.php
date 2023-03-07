@@ -25,6 +25,15 @@
                             <h3 class="card-title">{{ $book->title }}</h3>
                             <h5 class="card-text">{{ $book->author }}</h5>
                             <p class="card-text mt-2">{{ $book->description }}</p>
+
+                            <h4>
+                                Rivenditori:
+                            </h4>
+                            <ul>
+                                @foreach ($book->resellers as $resellerName)
+                                    <li>{{$resellerName->nome}} -- {{$resellerName->indirizzo}}</li>
+                                @endforeach
+                            </ul>
                             </div>
                         </div>
                         <div class="card-footer d-flex">
